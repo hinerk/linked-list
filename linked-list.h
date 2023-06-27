@@ -1,3 +1,6 @@
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
+
 typedef struct linked_list_t linked_list_t;
 
 typedef struct linked_list_t {
@@ -16,3 +19,4 @@ void _linked_list_apply(linked_list_t * list, void * (* func)(void *));
     _linked_list_apply(list, func);\
     _Pragma("GCC diagnostic pop") \
 }
+#endif
