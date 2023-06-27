@@ -58,7 +58,7 @@ void * linked_list_index(linked_list_t * list, int index) {
 }
 
 
-void linked_list_apply(linked_list_t * list, void * (*func)(void *)) {
+void _linked_list_apply(linked_list_t * list, void * (*func)(void *)) {
     if (_list_is_empty(list)) return;
     list->data = func(list->data);
     if (list->next != NULL) _linked_list_apply(list->next, func);
