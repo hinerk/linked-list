@@ -66,3 +66,10 @@ linked_list_t * _linked_list_map(linked_list_t * list, void * (*func)(void *)) {
     new->next = _linked_list_map(list->next, func);
     return new;
 }
+
+
+void _linked_list_discard_map(linked_list_t * list, void * (*func)(void *)) {
+    if (_list_is_empty(list)) return;
+    func(list->data);
+    _linked_list_discard_map(list->next, func);
+}

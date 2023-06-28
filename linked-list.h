@@ -30,4 +30,18 @@ linked_list_t * _linked_list_map(linked_list_t * list, void * (* func)(void *));
     _Pragma("GCC diagnostic pop") \
     ___lst; \
 })
+
+
+void _linked_list_discard_map(linked_list_t * list, void * (* func)(void *));
+
+/**
+ * @brief applies a function to each element of a list and discards the results
+ *
+ */
+#define linked_list_discard_map(list, func) ({\
+    _Pragma("GCC diagnostic ignored \"-Wincompatible-pointer-types\"") \
+    _linked_list_discard_map(list, func);\
+    _Pragma("GCC diagnostic pop") \
+})
+
 #endif
