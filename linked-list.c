@@ -59,8 +59,10 @@ void * linked_list_index(linked_list_t * list, int index) {
 }
 
 
-void _linked_list_apply(linked_list_t * list, void * (*func)(void *)) {
-    if (_list_is_empty(list)) return;
-    list->data = func(list->data);
-    if (list->next != NULL) _linked_list_apply(list->next, func);
+linked_list_t * _linked_list_map(linked_list_t * list, void * (*func)(void *)) {
+    if (_list_is_empty(list)) return NULL;
+    linked_list_t * new = linked_list_new();
+    new->data = func(list->data);
+    new->next = _linked_list_map(list->next, func);
+    return new;
 }

@@ -57,7 +57,7 @@ int main() {
     content = (char *) linked_list_index(list, 3);
     printf("content from index 3: \"%s\"\n", content);
 
-    linked_list_apply(list, to_upper);
+    list = linked_list_map(list, to_upper);
 
     content = (char *) linked_list_index(list, 0);
     printf("content from index 0: \"%s\"\n", content);
