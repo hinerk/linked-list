@@ -5,7 +5,7 @@
 
 
 bool _list_is_empty(linked_list_t * list) {
-    return list->next == NULL && list->data == NULL;
+    return list == NULL || list->next == NULL && list->data == NULL;
 }
 
 
@@ -25,6 +25,7 @@ linked_list_t * linked_list_new() {
 
 
 void linked_list_free(linked_list_t * list) {
+    if (list == NULL) return;
     if (list->next !=NULL) linked_list_free(list->next);
     free(list);
 }
