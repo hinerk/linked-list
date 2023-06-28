@@ -73,3 +73,14 @@ void _linked_list_discard_map(linked_list_t * list, void * (*func)(void *)) {
     func(list->data);
     _linked_list_discard_map(list->next, func);
 }
+
+
+linked_list_t * _linked_list_filter(linked_list_t * list, bool (*func)(void *)) {
+    if (_list_is_empty(list)) return NULL;
+    if (!func(list->data)) return _linked_list_filter(list->next, func);
+
+    linked_list_t * new = linked_list_new();
+    new->data = list->data;
+    new->next = _linked_list_filter(list->next, func);
+    return new;
+}

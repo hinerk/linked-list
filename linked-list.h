@@ -44,4 +44,18 @@ void _linked_list_discard_map(linked_list_t * list, void * (* func)(void *));
     _Pragma("GCC diagnostic pop") \
 })
 
+
+linked_list_t * _linked_list_filter(linked_list_t * list, bool (*func)(void *));
+
+/**
+ * @brief filters a list based of the result of function
+ *
+ */
+#define linked_list_filter(list, func) ({\
+    _Pragma("GCC diagnostic ignored \"-Wincompatible-pointer-types\"") \
+    linked_list_t * ___lst = _linked_list_filter(list, func);\
+    _Pragma("GCC diagnostic pop") \
+    ___lst; \
+})
+
 #endif
