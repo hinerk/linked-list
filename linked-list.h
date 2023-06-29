@@ -1,6 +1,10 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
+#ifdef LINKED_LIST_DEBUG
+#warning "building linked-list with debugging"
+#endif
+
 typedef struct linked_list_t linked_list_t;
 
 typedef struct linked_list_t {
