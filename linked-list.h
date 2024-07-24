@@ -1,6 +1,8 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
+#include <stdbool.h>
+
 #ifdef LINKED_LIST_DEBUG
 #warning "building linked-list with debugging"
 #endif
